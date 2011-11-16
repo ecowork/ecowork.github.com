@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://ecowork.github.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: DevHub of Ecowrk
+subtitle:
+author: Ecowork Inc.
 simple_search: http://google.com/search
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
