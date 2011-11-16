@@ -24,12 +24,17 @@ cd ecowork.github.com
 # rvm use 1.9.2@octopress --create
 bundle install
 ```
+**產生 deploy 目錄**
+``` sh
+rake setup_github_pages # 輸入 "git@github.com:ecowork/ecowork.github.com.git"
+```
 ## 撰寫與發佈文章
 **新增文章**
 ``` sh
 rake 'new_post[title-of-post]'
+# 編輯 source/_posts/YYYY-MM-DD-title-of-post.markdown
 ```
-**產生 HTML**
+**產生靜態頁面**
 ``` sh
 rake generate
 ```
