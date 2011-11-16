@@ -48,6 +48,10 @@ rake preview
 rake deploy
 # 開啟 http://ecowork.github.com/
 ```
+**把文章原始檔 commit 到 GitHub**
+``` sh
+git push origin source
+```
 
 ## 更多參考資料
 * [Octopress 文件](http://octopress.org/docs/)
