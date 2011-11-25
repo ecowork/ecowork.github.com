@@ -71,6 +71,8 @@ rake deploy
 
 ### 把文章原始檔 commit 到 GitHub
 {% codeblock lang:sh %}
+git add .
+git commit -m 'Commit Log'
 git push origin source
 {% endcodeblock %}
 
