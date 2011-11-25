@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: blog | DevHub of Ecowork]]></title>
+  <link href="http://ecowork.github.com/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://ecowork.github.com/"/>
+  <updated>2011-11-25T17:16:45+08:00</updated>
+  <id>http://ecowork.github.com/</id>
+  <author>
+    <name><![CDATA[Ecowork Inc.]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress 環境準備]]></title>
+    <link href="http://ecowork.github.com/blog/2011/11/16/octopress-preparation/"/>
+    <updated>2011-11-16T15:26:00+08:00</updated>
+    <id>http://ecowork.github.com/blog/2011/11/16/octopress-preparation</id>
+    <content type="html"><![CDATA[<h2>安裝工具</h2>
+
+<h3>安裝 RVM</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>bash &amp;lt; &amp;lt;<span class="o">(</span>curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer <span class="o">)</span>
+</span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;amp;&amp;amp; source &quot;$HOME/.rvm/scripts/rvm&quot;&#39;</span> &gt;&gt; ~/.zshrc&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;重新登入&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>安裝 Ruby 並建立 Gemset</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rvm install 1.9.2&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;rvm use 1.9.2
+</span><span class='line'>rvm gemset create octopress <span class="c"># 使用獨立的 gemset</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>環境設定</h2>
+
+<h3>Clone Repository</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git clone --branch <span class="nb">source </span>git@github.com:ecowork/ecowork.github.com.git ecowork.github.com&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;cd ecowork.github.com&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;rvm use 1.9.2@octopress --create&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;bundle install
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>產生 deploy 目錄</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake setup_github_pages <span class="c"># 輸入 &quot;git@github.com:ecowork/ecowork.github.com.git&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>撰寫與發佈文章</h2>
+
+<h3>新增文章</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake <span class="s1">&#39;new_post[title-of-post]&#39;</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;編輯 <span class="nb">source</span>/_posts/YYYY-MM-DD-title-of-post.markdown&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>產生靜態頁面</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake generate
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>在<a href="http://localhost:4000/">本地端</a>預覽文章</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake preview&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;開啟 http://localhost:4000/&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>發佈文章至 <a href="http://ecowork.github.com">GitHub Pages</a></h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake deploy&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;開啟 http://ecowork.github.com/&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>把文章原始檔 commit 到 GitHub</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git add .
+</span><span class='line'>git commit -m <span class="s1">&#39;Commit Log&#39;</span>
+</span><span class='line'>git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>更多參考資料</h2>
+
+<ul>
+<li><a href="http://octopress.org/docs/">Octopress 文件</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown 文件</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
